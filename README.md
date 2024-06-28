@@ -1,2 +1,2 @@
 # chariction.github.io
-Char(ity au)ction
+Chari(ty au)ction
