@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -7,16 +8,24 @@ import { HomeComponent } from './home/home.component';
   template: `
   <main>
     <header class='brand-name'>
-      <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true">
+      <div class="brand-logo">
+        <a href="/">
+          <img class="brand-logo" src="/assets/charicticon_logo/logo_main_compressed.png" alt="logo" aria-hidden="true">
+        </a>
+      </div>
+      <div class="donate"><a href="https://send.monobank.ua/jar/5GDiCGtwBs" class="jar">Quick Donate</a></div>
+      <div>
+        <a class="contact-us" href="#">Contact Us</a>
+      </div>
     </header>
   </main>
   <section class="content">
-    <app-home></app-home>
+    <router-outlet></router-outlet>
   </section>
   `,
   styleUrls: ['./app.component.css'],
-  imports: [(HomeComponent)],
+  imports: [HomeComponent, RouterModule],
 })
 export class AppComponent {
-  title = 'homes';
+  title = 'Chariction';
 }

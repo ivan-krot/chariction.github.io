@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LotInformationComponent } from '../lot-information/lot-information.component';
+import { LotInformation } from '../lot-information';
+import { LotsService } from '../lots.service';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +16,16 @@ import { LotInformationComponent } from '../lot-information/lot-information.comp
       </form>
     </section>
     <section class="results">
-      <app-lot-information></app-lot-information>
+      <app-lot-information *ngFor="let lotInformation of lotInformationList" [lotInformation]="lotInformation"></app-lot-information>
     </section>
   `,
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  lotInformationList: LotInformation[] = [];
+  lotsService: LotsService = inject(LotsService);
 
+  constructor() {
+    this.lotInformationList = this.lotsService.getAllLots();
+  }
 }
