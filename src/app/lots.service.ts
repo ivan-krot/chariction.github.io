@@ -400,4 +400,8 @@ export class LotsService {
   getLotById(id: Number) : LotInformation | undefined {
     return this.lotInformationList.find(lotInformation => lotInformation.id === id);
   }
+
+  submitApplicationForm(firstName: string, lastName: string, email: string){
+    console.log(firstName, lastName, email)
+  }
 }

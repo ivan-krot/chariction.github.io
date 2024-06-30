@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { LotInformation } from '../lot-information';
 import { LotsService } from '../lots.service';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-lot',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   template: `
     <article>
     <img class="listing-photo" [src]="lotInformation?.image">
@@ -27,6 +28,18 @@ import { LotsService } from '../lots.service';
       <h2 class="section-heading">Ready to bid more ?</h2>
       <button class="primary">Raise price</button>
       <a href="https://send.monobank.ua/jar/5GDiCGtwBs" class="donate">Donate</a>
+      <form [formGroup]="applyForm" (submit)="submitApplicationForm()">
+        <label for="first-name">First Name:</label>
+        <input id="first-name" type="text" formControlName="firstName">
+
+        <label for="last-name">Last Name:</label>
+        <input id="last-name" type="text" formControlName="lastName">
+
+        <label for="email">Email:</label>
+        <input id="email" type="text" formControlName="email">
+
+        <button type="submit" class="primary">Submit Form</button>
+      </form>
     </section> 
     </article>
   `,
@@ -36,9 +49,21 @@ export class LotComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   lotService = inject(LotsService);
   lotInformation: LotInformation | undefined;
+  applyForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl('')
+  });
 
   constructor () {
     const lotInformationId = Number(this.route.snapshot.params["id"])
     this.lotInformation = this.lotService.getLotById(lotInformationId)
+  }
+  submitApplicationForm() {
+    this.lotService.submitApplicationForm(
+      this.applyForm.value.firstName ?? '',
+      this.applyForm.value.lastName ?? '',
+      this.applyForm.value.email ?? ''
+    )
   }
 }
