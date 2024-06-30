@@ -4,12 +4,7 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: 'Teko';
-    /* Name your font family */
-    src: url('/src/assets/fonts/OswaldFont/Oswald-VariableFont_wght.ttf');
-    /* Locate the .ttf file within your directory*/
-}
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
 
     /* 
     <uniquifier>: Use a unique and descriptive class name
@@ -26,7 +21,7 @@
 body {
     font-family: 'Be Vietnam Pro', sans-serif;
     font-family: 'Pacifico', cursive;
-    font-family: "Black Ops One", system-ui;
+    font-family: "Teko", sans-serif;
 }
 
 :root {
@@ -43,4 +38,9 @@ button.primary {
     background: var(--primary-color);
     color: white;
     border-radius: 8px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
 }
