@@ -1,4 +1,15 @@
+footer {
+    padding: 10px 0;
+}
+
 .footer-content {
     display: flex;
     justify-content: space-around;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.copyright {
+    padding: 10px;
+    text-align: center;
 }

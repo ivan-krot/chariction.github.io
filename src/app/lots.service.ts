@@ -21,7 +21,7 @@ export class LotsService {
     },
     {
       "id": 1,
-      "image": "/assets/lots_images/default_placeholder/logo_with_text_large.pn",
+      "image": "",
       "title": "Lorem ipsum dolor sit amet Спеціально до аукціону Test",
       "description": "Lorem ipsum dolor sit amet Спеціально до аукціону пLorem ipsum dolor sit amet Спеціально до аукціону пLorem ipsum dolor sit amet Спеціально до аукціону п",
       "startprice": 9999999.99,
@@ -387,6 +387,13 @@ export class LotsService {
   constructor() { }
 
   getAllLots() : LotInformation [] {
+    for (let lot of this.lotInformationList) {
+      
+      // put placeholder image in case if image was NOT provided
+      if (lot.image == "") {
+        lot.image = "/assets/lots_images/default_placeholder/logo_with_text_large.png"
+      }
+    }
     return this.lotInformationList;
   }
 
