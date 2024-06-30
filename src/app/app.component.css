@@ -3,10 +3,23 @@
   }
   header {
     display: flex;
+    justify-content: space-between;
     max-height: 4rem;
     padding: var(--content-padding);
     box-shadow: 0px 5px 25px var(--shadow-color);
   }
+
+  .brand-logo {
+    flex-basis: 4em;
+  }
+
+  .navigation-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 100%;
+  }
+
   .content {
     padding: var(--content-padding);
   }
