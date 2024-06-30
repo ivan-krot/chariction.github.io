@@ -33,9 +33,12 @@ body {
 }
 
 button.primary {
-    padding: 10px;
+    padding: 6px 15px;
     border: solid 1px var(--primary-color);
     background: var(--primary-color);
     color: white;
     border-radius: 8px;
+}
+ul, ol {
+    list-style: none;
 }

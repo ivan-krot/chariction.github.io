@@ -1,21 +1,51 @@
 .listing {
     background: var(--accent-color);
     border-radius: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 0;
+    overflow: hidden;
   }
+
+  section.listing > a.main-image {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+  }
+
   .listing-heading {
     color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    height: 4.5em;
     padding: 10px 20px 0 20px;
+    text-align: center;
   }
   .listing-photo {
-    height: 250px;
+    height: 400px;
     width: 100%;
     object-fit: cover;
     border-radius: 30px 30px 0 0;
+    transition: transform .2s; /* Animation */
   }
-  .listing-location {
+
+  .listing-photo:hover {
+    transform: scale(1.1);
+  }
+
+  .listing-information,
+  .buttonns-block {
     padding: 10px 20px 20px 20px;
   }
+
+  .buttonns-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  section.listing .buttonns-block a {
+    padding: 0;
+  }
+
   .listing-location::before {
     content: url("/assets/location-pin.svg") / "";
   }
@@ -28,4 +58,5 @@
   section.listing a::after {
     content: "\203A";
     margin-left: 5px;
+    display: none;
   }
