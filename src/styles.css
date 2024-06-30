@@ -39,8 +39,3 @@ button.primary {
     color: white;
     border-radius: 8px;
 }
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-}
