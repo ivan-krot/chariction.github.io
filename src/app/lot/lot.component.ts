@@ -57,7 +57,10 @@ export class LotComponent {
 
   constructor () {
     const lotInformationId = Number(this.route.snapshot.params["id"])
-    this.lotInformation = this.lotService.getLotById(lotInformationId)
+    //this.lotInformation = this.lotService.getLotById(lotInformationId)
+    this.lotService.getLotById(lotInformationId).then(lotInformation => {
+      this.lotInformation = lotInformation;
+    });
   }
   submitApplicationForm() {
     this.lotService.submitApplicationForm(
