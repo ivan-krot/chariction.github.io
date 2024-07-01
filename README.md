@@ -17,3 +17,11 @@ Chari(ty au)ction
 - Run the application locally 
 
   `ng serve`
+
+JSON server (npm install -g json-server)
+
+json-server --watch db.json
+
+Endpoints:
+http://localhost:3000/lots
+

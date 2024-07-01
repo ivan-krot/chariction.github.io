@@ -6,8 +6,8 @@ export interface LotInformation {
     startprice: number,
     currency: string,
     isGroup: boolean,
-    startDate: Date,
-    endDate: Date,
+    startDate: string,
+    endDate: string,
     owner: string,
     owner_id: number, 
 }

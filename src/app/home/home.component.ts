@@ -26,6 +26,9 @@ export class HomeComponent {
   lotsService: LotsService = inject(LotsService);
 
   constructor() {
-    this.lotInformationList = this.lotsService.getAllLots();
+    //this.lotInformationList = this.lotsService.getAllLots();
+    this.lotsService.getAllLots().then((lotInformationList: LotInformation[]) => {
+      this.lotInformationList = lotInformationList;
+    })
   }
 }
